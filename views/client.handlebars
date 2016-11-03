@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body>
+<h1>클라이언트</h1>
+<div class="gnb">
+  <a href="#" class="btn-login">Login</a>
+</div>
+<script>
+function getParameterByName(name) {
+    var url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"), results = regex.exec(url);
+
+    if (!results) return null;
+    if (!results[2]) return '';
+
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+$(function() {
+  $('.btn-login').click(function() {
+    location.href = 'http://localhost:7070/?redirectUrl=http://localhost:6060/';
+    return false;
+  });
+
+  var token = getParameterByName('token');
+
+  if (token) {
+    $.getJSON('http://localhost:7070/gnb?token='+token)
+      .done(function(data) {
+        $('.gnb').html(data.body);
+      });
+  }
+
+});
+</script>
+</body>
+</html>

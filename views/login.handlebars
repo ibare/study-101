@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body>
+<h1>로그인</h1>
+<form method="post" action="/login">
+  <input type="hidden" name="redirectUrl" value="{{redirectUrl}}">
+  <input type="text" name="id">
+  <input type="submit" name="submit" value="Login">
+</form>
+</body>
+</html>
