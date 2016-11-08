@@ -32,7 +32,8 @@ $(function() {
   if (token) {
     $.getJSON('http://localhost:7070/gnb?token='+token)
       .done(function(data) {
-        $('.gnb').html(data.body);
+        console.log(data);
+        // $('.gnb').html(data.body);
       });
   }
 
