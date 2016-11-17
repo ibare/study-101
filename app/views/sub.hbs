@@ -1,5 +1,10 @@
 <h1>Sub</h1>
-<span data-role="bind" data-name="time" data-type="text">{{time}}</span>
+<span data-role="bind" data-name="username" data-type="text">{{username}}</span>
+<ol>
+{{#each family}}
+  <li>{{name}}</li>
+{{/each}}
+</ol>
 <button type="button">업데이트</button>
 <ul>
   <li><a href="#">Main</a></li>

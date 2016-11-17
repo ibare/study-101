@@ -4,18 +4,24 @@ export var Sub = Woowahan.View.create('Sub', {
   template: SubTemplate,
 
   events: {
-    'click button': 'onUpdate'
+    'click button': 'onGetFamily'
   },
 
-  onUpdate() {
-    this.setModel({
-      time: Date.now()
+  onGetFamily() {
+    this.dispatch(Woowahan.Action.create('FETCH family'), function(data) {
+      this.setModel({
+        family: data
+      });
+
+      this.updateView();
     });
   },
 
   initialize() {
-    this.setModel({
-      time: '어제'
+    this.dispatch(Woowahan.Action.create('FETCH PROFILE'), function(data) {
+      this.setModel({
+        username: data.name
+      });
     });
 
     this.super();

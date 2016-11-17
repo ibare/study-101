@@ -13,4 +13,16 @@ app.get('/', (req, res) => {
     res.render('index', { title: '스터디 101' });
 });
 
+app.get('/api/profile', (req, res) => {
+  res.send({
+    name: '홍길동'
+  });
+});
+
+app.get('/api/user/family', (req, res) => {
+  res.send([
+    { name: '조은' },{ name: '좋은' },{ name: '조~은' }
+  ]);
+});
+
 app.listen(6060);
